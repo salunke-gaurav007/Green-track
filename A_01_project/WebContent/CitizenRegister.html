@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Citizen Registration</title>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+    }
+    body {
+        background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                    url('https://images.unsplash.com/photo-1605000797499-95a51c5269ae?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+        background-size: cover;
+        background-position: center;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #fff;
+    }
+    .container {
+        width: 400px;
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        border-radius: 15px;
+        padding: 30px;
+        box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+        border: 1px solid rgba(255,255,255,0.1);
+    }
+    .form-section h2 {
+        text-align: center;
+        margin-bottom: 25px;
+        font-size: 28px;
+        color: #4CAF50;
+    }
+    .form-group {
+        position: relative;
+        margin-bottom: 20px;
+    }
+    .form-group input {
+        width: 100%;
+        padding: 12px 15px 12px 40px;
+        border: none;
+        background: rgba(255,255,255,0.9);
+        border-radius: 30px;
+        font-size: 14px;
+        outline: none;
+        transition: all 0.3s;
+    }
+    .form-group input:focus {
+        box-shadow: 0 0 10px rgba(76, 175, 80, 0.5);
+    }
+    .form-group .icon {
+        position: absolute;
+        left: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #555;
+    }
+    .register-btn {
+        width: 100%;
+        padding: 12px;
+        background: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 30px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: 500;
+        transition: all 0.3s;
+        margin-top: 10px;
+    }
+    .register-btn:hover {
+        background: #45a049;
+        transform: translateY(-2px);
+    }
+    span {
+        display: block;
+        text-align: center;
+        margin-top: 15px;
+        font-size: 14px;
+    }
+    span a {
+        color: #4CAF50;
+        text-decoration: none;
+        transition: all 0.3s;
+    }
+    span a:hover {
+        text-decoration: underline;
+    }
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+<div class="container">
+    <form action="CReg" method="post">
+        <div class="form-section">
+            <h2>Citizen Registration</h2>
+            <div class="form-group">
+                <input type="text" name="Cname" placeholder="Your Name" required />
+                <i class="fas fa-user icon"></i>
+            </div>
+            <div class="form-group">
+                <input type="text" name="Cadd" placeholder="Your Address" required />
+                <i class="fas fa-map-marker-alt icon"></i>
+            </div>
+            <div class="form-group">
+                <input type="text" name="Ccity" placeholder="Your City/Village" required />
+                <i class="fas fa-city icon"></i>
+            </div>
+            <div class="form-group">
+                <input type="tel" name="Ccontact" placeholder="Contact Number" required />
+                <i class="fas fa-phone icon"></i>
+            </div>
+            <div class="form-group">
+                <input type="email" name="Cmail" placeholder="Your Email" required />
+                <i class="fas fa-envelope icon"></i>
+            </div>
+            <div class="form-group">
+                <input type="password" name="Cpass" placeholder="Password" required />
+                <i class="fas fa-lock icon"></i>
+            </div>
+            <button class="register-btn" type="submit">Register</button>
+            <span>Already have an account? <a href="CitizenLog.html">Log in</a></span>
+        </div>
+    </form>
+    
+    
+     <form action="index.html">
+    <button class="login-btn" type="submit" style="margin-top: 15px; padding: 8px 16px; font-size: 0.9rem; width: auto;">Log Out</button>
+</form>
+</div>
+</body>
+</html>

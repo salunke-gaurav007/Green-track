@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Volunteer Registration - GreenTrack</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+    :root {
+        --primary-green: #228B22;
+        --accent-green: #32CD32;
+        --light-green: #E8F5E9;
+        --white: #FFFFFF;
+        --text-dark: #333333;
+        --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        --transition: all 0.3s ease;
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+    }
+
+  body {
+    background-image: url('https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+
+
+    color: var(--text-dark);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 100px;
+}
+    .container {
+        width: 100%;
+        max-width: 500px;
+        background-color: rgba(255, 255, 255, 0.85);
+        border-radius: 20px;
+        padding: 40px;
+        box-shadow: var(--shadow);
+        animation: fadeInUp 0.8s ease;
+    }
+
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .form-section {
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+    }
+
+    h2 {
+        font-size: 2rem;
+        color: var(--primary-green);
+        text-align: center;
+        margin-bottom: 10px;
+        position: relative;
+        padding-bottom: 10px;
+    }
+
+    h2::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 4px;
+        background-color: var(--accent-green);
+        border-radius: 2px;
+    }
+
+    .form-group {
+        position: relative;
+    }
+
+    .form-group input {
+        width: 100%;
+        padding: 15px 15px 15px 45px;
+        border: 2px solid #e0e0e0;
+        border-radius: 10px;
+        font-size: 1rem;
+        transition: var(--transition);
+        outline: none;
+    }
+
+    .form-group input:focus {
+        border-color: var(--accent-green);
+        box-shadow: 0 0 0 3px rgba(50, 205, 50, 0.2);
+    }
+
+    .form-group input::placeholder {
+        color: #aaa;
+    }
+
+    .icon {
+        position: absolute;
+        left: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: var(--primary-green);
+        font-size: 1.1rem;
+    }
+
+    .register-btn {
+        background-color: var(--primary-green);
+        color: white;
+        border: none;
+        padding: 15px;
+        border-radius: 10px;
+        font-size: 1.1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: var(--transition);
+        margin-top: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .register-btn:hover {
+        background-color: var(--accent-green);
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .register-btn i {
+        transition: var(--transition);
+    }
+
+    .register-btn:hover i {
+        transform: translateX(5px);
+    }
+
+    .logo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+
+    .logo img {
+        height: 50px;
+        margin-right: 15px;
+    }
+
+    .logo-text {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--primary-green);
+    }
+
+    .back-link {
+        display: inline-block;
+        margin-top: 20px;
+        color: var(--primary-green);
+        text-decoration: none;
+        font-weight: 500;
+        transition: var(--transition);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+    }
+
+    .back-link:hover {
+        color: var(--accent-green);
+        transform: translateX(-5px);
+    }
+
+    @media (max-width: 600px) {
+        .container {
+            padding: 30px 20px;
+        }
+        
+        h2 {
+            font-size: 1.8rem;
+        }
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <div class="logo">
+        <img src="https://cdn-icons-png.flaticon.com/512/2910/2910765.png" alt="GreenTrack Logo">
+        <span class="logo-text">GreenTrack</span>
+    </div>
+
+    <form action="VReg" method="post">
+        <div class="form-section">
+            <h2>Volunteer Registration</h2>
+            
+            <div class="form-group">
+                <input type="text" name="Vname" placeholder="Your Name" required />
+                <i class="fas fa-user icon"></i>
+            </div>
+            
+            <div class="form-group">
+                <input type="email" name="Vmail" placeholder="Your Email" required />
+                <i class="fas fa-envelope icon"></i>
+            </div>
+            
+            <div class="form-group">
+                <input type="tel" name="Vcont" placeholder="Contact Number" required />
+                <i class="fas fa-phone icon"></i>
+            </div>
+            
+            <div class="form-group">
+                <input type="password" name="Vpass" placeholder="Password" required />
+                <i class="fas fa-lock icon"></i>
+            </div>
+           
+            <button class="register-btn" type="submit">
+                Register <i class="fas fa-arrow-right"></i>
+            </button>
+            
+            <a href="AdminPannel.jsp" class="back-link">
+                <i class="fas fa-arrow-left"></i> Back to Dashboard
+            </a>
+        </div>
+    </form>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Add input validation effects
+        const inputs = document.querySelectorAll('input');
+        inputs.forEach(input => {
+            input.addEventListener('blur', function() {
+                if (this.value.trim() !== '') {
+                    this.style.borderColor = '#2e7d32';
+                } else {
+                    this.style.borderColor = '#e0e0e0';
+                }
+            });
+            
+            input.addEventListener('input', function() {
+                if (this.value.trim() !== '') {
+                    this.style.borderColor = '#2e7d32';
+                }
+            });
+        });
+        
+        // Add ripple effect to button
+        const button = document.querySelector('.register-btn');
+        button.addEventListener('click', function(e) {
+            let x = e.clientX - e.target.getBoundingClientRect().left;
+            let y = e.clientY - e.target.getBoundingClientRect().top;
+            
+            let ripple = document.createElement('span');
+            ripple.className = 'ripple';
+            ripple.style.left = `${x}px`;
+            ripple.style.top = `${y}px`;
+            
+            this.appendChild(ripple);
+            
+            setTimeout(() => {
+                ripple.remove();
+            }, 1000);
+        });
+    });
+</script>
+
+</body>
+</html>

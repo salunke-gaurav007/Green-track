@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="ISO-8859-1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GreenTrack - Tree Plantation Monitoring</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Global Styles */
+        :root {
+            --primary-green: #228B22;
+            --accent-green: #32CD32;
+            --earth-brown: #8B4513;
+            --sky-blue: #87CEEB;
+            --light-bg: #F0FFF0;
+            --white: #FFFFFF;
+            --text-dark: #333333;
+            --text-light: #F8F8F8;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light-bg);
+            color: var(--text-dark);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: var(--primary-green);
+            color: var(--white);
+            padding: 20px 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        
+        .logo {
+            font-size: 32px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 10px;
+        }
+        
+        .logo i {
+            margin-right: 10px;
+            color: var(--accent-green);
+        }
+        
+        /* Main Content */
+        main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        
+        .welcome-message {
+            max-width: 800px;
+            margin-bottom: 40px;
+        }
+        
+        .welcome-message h1 {
+            font-size: 42px;
+            color: var(--primary-green);
+            margin-bottom: 20px;
+        }
+        
+        .welcome-message p {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+        
+        /* Role Selection Cards */
+        .role-cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            max-width: 1000px;
+            margin-top: 30px;
+        }
+        
+        .role-card {
+            background-color: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            width: 300px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .role-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .role-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background-color: var(--accent-green);
+            transition: all 0.3s ease;
+        }
+        
+        .role-card:hover::before {
+            height: 10px;
+        }
+        
+        .role-icon {
+            font-size: 60px;
+            color: var(--primary-green);
+            margin: 30px 0 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .role-card:hover .role-icon {
+            transform: scale(1.1);
+            color: var(--accent-green);
+        }
+        
+        .role-card h2 {
+            margin-bottom: 15px;
+            color: var(--primary-green);
+        }
+        
+        .role-card p {
+            padding: 0 20px 20px;
+            color: var(--text-dark);
+        }
+        
+        .role-link {
+            display: inline-block;
+            background-color: var(--primary-green);
+            color: var(--white);
+            padding: 10px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            margin: 20px 0;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+        
+        .role-link:hover {
+            background-color: var(--accent-green);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--primary-green);
+            color: var(--white);
+            text-align: center;
+            padding: 20px;
+            margin-top: auto;
+        }
+        
+        .social-links {
+            margin-bottom: 15px;
+        }
+        
+        .social-links a {
+            color: var(--white);
+            margin: 0 10px;
+            font-size: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            color: var(--accent-green);
+            transform: translateY(-3px);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .welcome-message h1 {
+                font-size: 32px;
+            }
+            
+            .welcome-message p {
+                font-size: 16px;
+            }
+            
+            .role-cards {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .role-card {
+                width: 100%;
+                max-width: 350px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <i class="fas fa-tree"></i>
+            <span>GreenTrack</span>
+        </div>
+        <p>Tree Plantation Monitoring System</p>
+    </header>
+    
+    <main>
+        <div class="welcome-message">
+            <h1>Welcome to GreenTrack</h1>
+            <p>Join our mission to create a greener environment by monitoring and participating in tree plantation activities across our community.</p>
+        </div>
+        
+        <div class="role-cards">
+            <div class="role-card">
+                <div class="role-icon">
+                    <i class="fas fa-user-shield"></i>
+                </div>
+                <h2>Admin</h2>
+                <p>Manage volunteers, view citizens, and monitor all plantation activities across the system.</p>
+                <a href="Admin.html" class="role-link">Admin Portal</a>
+            </div>
+            
+            <div class="role-card">
+                <div class="role-icon">
+                    <i class="fas fa-hands-helping"></i>
+                </div>
+                <h2>Volunteer</h2>
+                <p>Log plantation activities, view locations, and contribute to our green initiative.</p>
+                <a href="volenteerLog.html" class="role-link">Volunteer Portal</a>
+            </div>
+            
+            <div class="role-card">
+                <div class="role-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <h2>Citizen</h2>
+                <p>Suggest locations, view plantation logs, and track community progress.</p>
+                <a href="CitizenLog.html" class="role-link">Citizen Portal</a>
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        <div class="social-links">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+        <p>&copy; 2023 GreenTrack. All rights reserved.</p>
+    </footer>
+    
+    <script>
+        // Add animation when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.role-card');
+            cards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                card.style.animation = `fadeInUp 0.5s ease forwards ${index * 0.2}s`;
+            });
+            
+            // Add style for animation
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes fadeInUp {
+                    from {
+                        opacity: 0;
+                        transform: translateY(20px);
+                    }
+                    to {
+                        opacity: 1;
+                        transform: translateY(0);
+                    }
+                }
+            `;
+            document.head.appendChild(style);
+            
+            // Add hover effect for role links
+            const roleLinks = document.querySelectorAll('.role-link');
+            roleLinks.forEach(link => {
+                link.addEventListener('mouseenter', function() {
+                    this.querySelector('i')?.style.transform = 'translateX(5px)';
+                });
+                link.addEventListener('mouseleave', function() {
+                    this.querySelector('i')?.style.transform = 'translateX(0)';
+                });
+            });
+        });
+    </script>
+</body>
+</html>

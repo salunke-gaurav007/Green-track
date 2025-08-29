@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="ISO-8859-1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login - GreenTrack</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Global Styles */
+        :root {
+            --primary-green: #228B22;
+            --accent-green: #32CD32;
+            --light-bg: #F0FFF0;
+            --white: #FFFFFF;
+            --text-dark: #333333;
+            --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light-bg);
+            color: var(--text-dark);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-image: url('https://images.unsplash.com/photo-1466611653911-95081537e5b7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            background-blend-mode: overlay;
+            background-color: rgba(0, 0, 0, 0.3);
+        }
+        
+        /* Container Styles */
+        .container {
+            background-color: var(--white);
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            width: 100%;
+            max-width: 450px;
+            overflow: hidden;
+            transform: translateY(20px);
+            opacity: 0;
+            animation: fadeInUp 0.5s ease forwards;
+            transition: all 0.3s ease;
+        }
+        
+        @keyframes fadeInUp {
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        
+        /* Header Section */
+        .form-header {
+            background-color: var(--primary-green);
+            color: var(--white);
+            padding: 25px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+        }
+        
+        .logo i {
+            font-size: 32px;
+            margin-right: 10px;
+            color: var(--accent-green);
+        }
+        
+        .logo-text {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        
+        /* Form Section */
+        .form-section {
+            padding: 30px;
+        }
+        
+        .form-section h2 {
+            color: var(--primary-green);
+            text-align: center;
+            margin-bottom: 25px;
+            font-size: 22px;
+        }
+        
+        .form-group {
+            position: relative;
+            margin-bottom: 25px;
+            transition: all 0.3s ease;
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 15px 15px 15px 45px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+        
+        .form-group input:focus {
+            border-color: var(--accent-green);
+            box-shadow: 0 0 0 3px rgba(50, 205, 50, 0.2);
+            outline: none;
+        }
+        
+        .form-group .icon {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--primary-green);
+            transition: all 0.3s ease;
+        }
+        
+        .form-group input:focus + .icon {
+            color: var(--accent-green);
+        }
+        
+        /* Button Styles */
+        .register-btn {
+            width: 100%;
+            padding: 15px;
+            background-color: var(--primary-green);
+            color: var(--white);
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .register-btn:hover {
+            background-color: var(--accent-green);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .register-btn i {
+            margin-left: 8px;
+            transition: transform 0.3s ease;
+        }
+        
+        .register-btn:hover i {
+            transform: translateX(5px);
+        }
+        
+        /* Additional Options */
+        .form-options {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            font-size: 14px;
+        }
+        
+        .form-options a {
+            color: var(--primary-green);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .form-options a:hover {
+            color: var(--accent-green);
+            text-decoration: underline;
+        }
+        
+        /* Footer */
+        .form-footer {
+            text-align: center;
+            margin-top: 25px;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+            font-size: 14px;
+        }
+        
+        .form-footer a {
+            color: var(--primary-green);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .form-footer a:hover {
+            color: var(--accent-green);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 480px) {
+            .container {
+                margin: 20px;
+                max-width: calc(100% - 40px);
+            }
+            
+            .form-section {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="form-header">
+            <div class="logo">
+                <i class="fas fa-tree"></i>
+                <span class="logo-text">GreenTrack</span>
+            </div>
+            <p>Admin Portal</p>
+        </div>
+        
+        <form action="AdminLogin" method="post" class="form-section">
+            <h2>Sign in to your account</h2>
+          
+            <div class="form-group">
+                <input type="email" name="Amail" placeholder="Your Email" required />
+                <i class="fas fa-envelope icon"></i>
+            </div>
+            
+            <div class="form-group">
+                <input type="password" name="Apass" placeholder="Password" required />
+                <i class="fas fa-lock icon"></i>
+            </div>
+            
+                     
+            <button class="register-btn" type="submit">
+                Login <i class="fas fa-arrow-right"></i>
+            </button>
+            
+        </form>
+    </div>
+
+    <script>
+        // Add animation to form inputs on focus
+        document.addEventListener('DOMContentLoaded', function() {
+            const inputs = document.querySelectorAll('.form-group input');
+            
+            inputs.forEach(input => {
+                // Add focus/blur effects
+                input.addEventListener('focus', function() {
+                    this.parentElement.style.transform = 'translateY(-3px)';
+                });
+                
+                input.addEventListener('blur', function() {
+                    this.parentElement.style.transform = 'translateY(0)';
+                });
+                
+                // Add floating label effect
+                input.addEventListener('input', function() {
+                    if (this.value) {
+                        this.parentElement.querySelector('.icon').style.transform = 'translateY(-10px) scale(0.9)';
+                    } else {
+                        this.parentElement.querySelector('.icon').style.transform = 'translateY(-50%) scale(1)';
+                    }
+                });
+            });
+            
+            // Add shake animation for invalid inputs
+            const form = document.querySelector('form');
+            form.addEventListener('submit', function(e) {
+                let isValid = true;
+                inputs.forEach(input => {
+                    if (!input.value) {
+                        input.style.borderColor = '#ff6b6b';
+                        input.parentElement.style.animation = 'shake 0.5s';
+                        isValid = false;
+                        
+                        // Remove animation after it completes
+                        setTimeout(() => {
+                            input.parentElement.style.animation = '';
+                        }, 500);
+                    }
+                });
+                
+                if (!isValid) {
+                    e.preventDefault();
+                }
+            });
+            
+            // Add style for shake animation
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes shake {
+                    0%, 100% { transform: translateX(0); }
+                    20%, 60% { transform: translateX(-5px); }
+                    40%, 80% { transform: translateX(5px); }
+                }
+            `;
+            document.head.appendChild(style);
+        });
+    </script>
+</body>
+</html>
